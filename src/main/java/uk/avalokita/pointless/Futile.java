@@ -6,7 +6,7 @@ import java.net.DatagramSocket;
 import java.net.SocketException;
 
 /**
- * Doesn't really serve any purpose
+ * Doesn't really serve any purpose except to help me learn Javadoc
  * @author greg
  */
 public class Futile {
