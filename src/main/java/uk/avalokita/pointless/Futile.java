@@ -20,7 +20,7 @@ public class Futile {
 	/**
 	 * My favourite constructor
 	 * @param text value assigned to the text field
-	 * @throws SocketException 
+	 * @throws SocketException if a DatagramSocket cannot be created 
 	 */
 	public Futile(String text) throws SocketException {
 		this.datagramSocket = new DatagramSocket();
@@ -30,7 +30,7 @@ public class Futile {
 
 	/**
 	 * Slightly less favoured constructor, but still pretty good
-	 * @throws SocketException 
+	 * @throws SocketException if a DatagramSocket cannot be created  
 	 */
 	public Futile() throws SocketException {
 		this(DEFAULT_TEXT);
