@@ -1,14 +1,12 @@
-/**
- * Here is a comment just before the package statement
- */
+// Javadoc-style comments here don't appear in Javadoc
 package uk.avalokita.pointless;
 
-// These don't appear in Javadocs - presumably they are implementation-dependent, not 'contractual'
+//Javadoc-style comments here don't appear in Javadoc
 import java.net.DatagramSocket;
 import java.net.SocketException;
 
 /**
- * Some text is here in the class header comment
+ * Doesn't really serve any purpose
  * @author greg
  */
 public class Futile {
