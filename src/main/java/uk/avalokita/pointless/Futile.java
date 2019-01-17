@@ -18,6 +18,7 @@ public class Futile {
 	public static final String DEFAULT_TEXT = "hollow";
 	
 	/**
+	 * My favourite constructor
 	 * @param text value assigned to the text field
 	 * @throws SocketException 
 	 */
@@ -28,6 +29,7 @@ public class Futile {
 	}
 
 	/**
+	 * Slightly less favoured constructor, but still pretty good
 	 * @throws SocketException 
 	 */
 	public Futile() throws SocketException {
@@ -40,6 +42,7 @@ public class Futile {
 	final private DatagramSocket datagramSocket;
 
 	/**
+	 * Some stuff
 	 * @return local port opened by the DatagramSocket field
 	 */
 	public int localPort() {
@@ -52,6 +55,7 @@ public class Futile {
 	final private int length;
 	
 	/**
+	 * More stuff
 	 * @return length of the text field
 	 */
 	public int getLength() {
@@ -64,6 +68,7 @@ public class Futile {
 	final private String text;
 
 	/**
+	 * Are you tired of stuff yet?
 	 * @return value of the text field
 	 */
 	public String getText() {
