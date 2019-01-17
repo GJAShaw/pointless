@@ -3,6 +3,7 @@
  */
 package uk.avalokita.pointless;
 
+// These don't appear in Javadocs - presumably they are implementation-dependent, not 'contractual'
 import java.net.DatagramSocket;
 import java.net.SocketException;
 
