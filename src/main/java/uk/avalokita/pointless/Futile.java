@@ -8,19 +8,18 @@ import java.net.SocketException;
 
 /**
  * @author greg
- * Some text is here in the class header comment
  *
+ * Some text is here in the class header comment
  */
 public class Futile {
 	
 	/**
-	 * The default value for the text field
+	 * default value for the text field
 	 */
 	public static final String DEFAULT_TEXT = "hollow";
 	
 	/**
-	 * @param text
-	 * Here is some text in the Futile(String) constructor comment
+	 * @param text value assigned to the text field
 	 * @throws SocketException 
 	 */
 	public Futile(String text) throws SocketException {
@@ -30,7 +29,6 @@ public class Futile {
 	}
 
 	/**
-	 * Some text in the Futile() constructor comment
 	 * @throws SocketException 
 	 */
 	public Futile() throws SocketException {
@@ -55,9 +53,9 @@ public class Futile {
 	final private int length;
 	
 	/**
-	 * @return the length
+	 * @return length of the text field
 	 */
-	int getLength() {
+	public int getLength() {
 		return length;
 	}
 
@@ -67,10 +65,18 @@ public class Futile {
 	final private String text;
 
 	/**
-	 * @return the text
+	 * @return value of the text field
 	 */
-	String getText() {
+	public String getText() {
 		return text;
+	}
+	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "what difference does it make?";
 	}
 
 }
