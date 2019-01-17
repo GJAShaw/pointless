@@ -7,9 +7,8 @@ import java.net.DatagramSocket;
 import java.net.SocketException;
 
 /**
- * @author greg
- *
  * Some text is here in the class header comment
+ * @author greg
  */
 public class Futile {
 	
