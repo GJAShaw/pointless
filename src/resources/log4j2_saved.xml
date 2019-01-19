@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration xmlns="http://logging.apache.org/log4j/2.0/config">
     <Properties>
-        <Property name="basePath">./Futile/logs</Property>
-        <!--Property name="basePath">../Log4j2Example/logs</Property-->
+        <Property name="basePath">./logs</Property>
     </Properties>
     <Appenders>
         <!-- File Appender -->
@@ -22,4 +21,14 @@
         </Root>
     </Loggers>
 </Configuration>
+
+<!--
+Adapted from 
+https://examples.javacodegeeks.com/enterprise-java/log4j/log4j-2-getting-started-example/
+
+Severity:
+Trace < Debug < Info < Warn < Error < Fatal
+
+-->
+
 
