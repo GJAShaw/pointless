@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration xmlns="http://logging.apache.org/log4j/2.0/config">
+<Configuration xmlns="http://logging.apache.org/log4j/2.0/config" monitorInterval="30">
     <Properties>
         <Property name="basePath">./logs</Property>
     </Properties>
@@ -14,9 +14,11 @@
         </Console>
     </Appenders>
     <Loggers>
-        <Logger name="uk.avalokita" level="debug" />
-        <Root level="info">
+        <!--Logger name="uk.avalokita" level="debug" /-->
+        <Logger name="uk.avalokita.pointless" level="info">
             <AppenderRef ref="STDOUT" />
+        </Logger>
+        <Root level="fatal">
             <AppenderRef ref="FILE" />
         </Root>
     </Loggers>

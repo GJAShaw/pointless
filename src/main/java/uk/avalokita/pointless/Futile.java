@@ -2,6 +2,7 @@
 package uk.avalokita.pointless;
 
 //Javadoc-style comments here don't appear in Javadoc
+import java.util.concurrent.TimeUnit;
 import java.net.DatagramSocket;
 import java.net.SocketException;
 import org.apache.logging.log4j.LogManager;
@@ -20,19 +21,26 @@ public class Futile {
 			Futile futile = new Futile(args[0]);
 			System.out.println("futile: " + futile.getText() + ": " + futile.localPort());
 		} catch (SocketException e) {
-			// TODO Auto-generated catch block
-			System.out.println(e.getMessage());
+			LOG.error(e.getMessage());
 		}
 		System.out.println("futile");
 		
-		// from https://examples.javacodegeeks.com/enterprise-java/log4j/log4j-2-getting-started-example/
-		LOG.debug("This Will Be Printed On Debug");
-		LOG.info("This Will Be Printed On Info");
-		LOG.warn("This Will Be Printed On Warn");
-		LOG.error("This Will Be Printed On Error");
-		LOG.fatal("This Will Be Printed On Fatal");
-
-		LOG.info("Appending string: {}.", "Hello, World");
+		for (int i = 0; i < 5; i++) {
+			// from https://examples.javacodegeeks.com/enterprise-java/log4j/log4j-2-getting-started-example/
+			LOG.debug("This Will Be Printed On Debug");
+			LOG.info("This Will Be Printed On Info");
+			LOG.warn("This Will Be Printed On Warn");
+			LOG.error("This Will Be Printed On Error");
+			LOG.fatal("This Will Be Printed On Fatal");
+			LOG.info("Appending string: {}.", "Hello, World");
+			
+			try {
+				TimeUnit.SECONDS.sleep(30);
+			} catch (InterruptedException e) {
+				LOG.info(e.getMessage());
+			}
+			
+		}
 		
 	}
 	
