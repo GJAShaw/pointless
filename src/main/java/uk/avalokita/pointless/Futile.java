@@ -12,34 +12,34 @@ import org.apache.logging.log4j.Logger;
  * Doesn't really serve any purpose except to help me learn Javadoc
  * @author greg
  */
-public class Futile {
+public class Futile implements Runnable {
 	
+	public void run() {
+		// from https://examples.javacodegeeks.com/enterprise-java/log4j/log4j-2-getting-started-example/
+		LOG.debug("This Will Be Printed On Debug " + index);
+		LOG.info("This Will Be Printed On Info " + index);
+		LOG.warn("This Will Be Printed On Warn " + index);
+		LOG.error("This Will Be Printed On Error " + index);
+		LOG.fatal("This Will Be Printed On Fatal " + index);
+		LOG.info("Appending string: {}.", "Hello, World " + index);
+	}
 	
 	public static void main(String[] args) {
 		
+		LOG.info(new FutileLog().toString());
+		
+		final int COUNT = 2;
+		Futile[] futileArray = new Futile[COUNT];
 		try {
-			Futile futile = new Futile(args[0]);
-			System.out.println("futile: " + futile.getText() + ": " + futile.localPort());
+			for (int i = 0; i < COUNT; i++) {
+				futileArray[i] = new Futile("WTF", i);
+				futileArray[i].run();
+				TimeUnit.SECONDS.sleep(5);
+			}
 		} catch (SocketException e) {
 			LOG.error(e.getMessage());
-		}
-		System.out.println("futile");
-		
-		for (int i = 0; i < 5; i++) {
-			// from https://examples.javacodegeeks.com/enterprise-java/log4j/log4j-2-getting-started-example/
-			LOG.debug("This Will Be Printed On Debug");
-			LOG.info("This Will Be Printed On Info");
-			LOG.warn("This Will Be Printed On Warn");
-			LOG.error("This Will Be Printed On Error");
-			LOG.fatal("This Will Be Printed On Fatal");
-			LOG.info("Appending string: {}.", "Hello, World");
-			
-			try {
-				TimeUnit.SECONDS.sleep(30);
-			} catch (InterruptedException e) {
-				LOG.info(e.getMessage());
-			}
-			
+		} catch (InterruptedException e) {
+			LOG.info(e.getMessage());
 		}
 		
 	}
@@ -54,10 +54,12 @@ public class Futile {
 	/**
 	 * My favourite constructor
 	 * @param text value assigned to the text field
+	 * @param index a futile index
 	 * @throws SocketException if a DatagramSocket cannot be created 
 	 */
-	public Futile(String text) throws SocketException {
+	public Futile(String text, int index) throws SocketException {
 		this.datagramSocket = new DatagramSocket();
+		this.index = index;
 		this.text = text;
 		this.length = text.length();
 	}
@@ -67,7 +69,7 @@ public class Futile {
 	 * @throws SocketException if a DatagramSocket cannot be created  
 	 */
 	public Futile() throws SocketException {
-		this(DEFAULT_TEXT);
+		this(DEFAULT_TEXT, 0);
 	}
 	
 	/**
@@ -82,6 +84,11 @@ public class Futile {
 	public int localPort() {
 		return datagramSocket.getLocalPort();
 	}
+	
+	/**
+	 * A private field - none of your business
+	 */
+	final private int index;
 	
 	/**
 	 * A private field - none of your business
