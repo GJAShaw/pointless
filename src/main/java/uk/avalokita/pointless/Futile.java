@@ -15,6 +15,9 @@ import org.apache.logging.log4j.Logger;
  */
 public class Futile implements Runnable {
 	
+	/* (non-Javadoc)
+	 * @see java.lang.Runnable#run()
+	 */
 	public void run() {
 		// from https://examples.javacodegeeks.com/enterprise-java/log4j/log4j-2-getting-started-example/
 		LOG.debug("This Will Be Printed On Debug " + index);
@@ -25,6 +28,9 @@ public class Futile implements Runnable {
 		LOG.info("Appending string: {}.", "Hello, World " + index);
 	}
 	
+	/**
+	 * @param args arguments from command line
+	 */
 	public static void main(String[] args) {
 		
 		TextPrinter.levelPrint(Level.ERROR, new FutileLog().toString());
@@ -47,6 +53,9 @@ public class Futile implements Runnable {
 		
 	}
 	
+	/**
+	 * log4j2 Logger
+	 */
 	private static final Logger LOG = LogManager.getLogger(Futile.class);
 	
 	/**
