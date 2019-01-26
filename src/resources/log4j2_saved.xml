@@ -18,14 +18,13 @@
         </Console>
     </Appenders>
     <Loggers>
-        <!--Logger name="uk.avalokita" level="debug" /-->
-        <Logger name="uk.avalokita.pointless" level="info">
-            <AppenderRef ref="STDOUT" />
+        <Logger name="uk.avalokita.pointless.TextPrinter" level="info" additivity="false">
+          <AppenderRef ref="STDOUT" />
         </Logger>
-        <Logger name="uk.avalokita.pointless.FutileLog" level="info">
+        <Logger name="uk.avalokita.pointless" level="info">
             <AppenderRef ref="STDOUT_LOG" />
         </Logger>
-        <Root level="fatal">
+        <Root level="info">
             <AppenderRef ref="FILE" />
         </Root>
     </Loggers>

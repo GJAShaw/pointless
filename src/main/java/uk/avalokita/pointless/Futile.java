@@ -5,11 +5,12 @@ package uk.avalokita.pointless;
 import java.util.concurrent.TimeUnit;
 import java.net.DatagramSocket;
 import java.net.SocketException;
+import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * Doesn't really serve any purpose except to help me learn Javadoc
+ * No use to end users. It's a learning sandbox for me.
  * @author greg
  */
 public class Futile implements Runnable {
@@ -26,7 +27,7 @@ public class Futile implements Runnable {
 	
 	public static void main(String[] args) {
 		
-		LOG.info(new FutileLog().toString());
+		TextPrinter.levelPrint(Level.ERROR, new FutileLog().toString());
 		
 		final int COUNT = 2;
 		Futile[] futileArray = new Futile[COUNT];
@@ -41,6 +42,8 @@ public class Futile implements Runnable {
 		} catch (InterruptedException e) {
 			LOG.info(e.getMessage());
 		}
+		
+		TextPrinter.levelPrint(Level.INFO, "Hello, world!");
 		
 	}
 	
